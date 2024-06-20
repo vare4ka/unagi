@@ -1,8 +1,10 @@
 import React from 'react';
 
-import './CreateCard.css';
+import './styles.css';
 
 /**
  * Step 3: Render a form and everything needed to be able to create a card
  */
-export const CreateCard = () => <div />;
+const CreateCard = () => <div />;
+
+export default CreateCard;
