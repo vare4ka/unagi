@@ -1,0 +1,11 @@
+.spinner {
+  fill: violet;
+  transform-origin: center;
+  animation: spinner_animation .75s infinite linear;
+}
+
+@keyframes spinner_animation {
+  100% {
+    transform:rotate(360deg);
+  }
+}
