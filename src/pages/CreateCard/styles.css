@@ -1,0 +1,26 @@
+.formContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 400px;
+  max-width: 700px;
+}
+
+.submitButton {
+  height: 50px;
+  background-color: rgb(106, 135, 242);
+  border-radius: 7px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: rgb(72, 93, 166);
+}

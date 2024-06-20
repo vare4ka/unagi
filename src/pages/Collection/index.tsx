@@ -8,18 +8,28 @@ import Loader from '../../components/Loader';
 import './styles.css';
 
 const Collection = () => {
-  const [card, setCard] = useState(null);
+  const [collection, setCollection] = useState([]);
   const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState('');
+
+  const fetchCall = async () => {
+    try {
+      const response = await fetchCollection();
+      setCollection(response);
+    } catch (err) {
+      setError(err.message);
+    }
+
+    setLoaded(true);
+  }
 
   useEffect(() => {
-    const collection = fetchCollection();
-    setCard(collection[0]);
-    setLoaded(true);
+    fetchCall();
   }, [])
 
-  const content = card
-    ? <Card info={card.player} id={card.id} />
-    : <h1 className='error'>:( Sorry, no cards found</h1>
+  const content = collection.length
+    ? collection.map((col) => <Card key={col.id} info={col.player} id={col.id} />)
+    : <h1 className='error'>{error || ':( Sorry, no cards found'}</h1>
 
   return (
     <div className='container'>
