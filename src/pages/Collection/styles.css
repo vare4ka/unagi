@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  height: 100vh;
+}
+
+.error {
+  color: violet;
+  font-size: 30px;
+}
+
+.sorting {
+  flex-basis: 100%;
+}
