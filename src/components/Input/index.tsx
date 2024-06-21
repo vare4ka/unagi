@@ -16,8 +16,7 @@ const Input = ({ type, name, label }: Props) => {
       <Field type={type} name={name} />
       <ErrorMessage name={name} component='div' className='inputError'/>
     </div>
-
-  )
+  );
 };
   
 export default Input;

@@ -21,7 +21,7 @@ export async function fetchCollection() {
   // ];
 }
 
-interface Values {
+export interface Values {
   firstname: string;
   lastname: string;
   birthday: string;

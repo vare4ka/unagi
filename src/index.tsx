@@ -8,8 +8,8 @@ import CreateCard from './pages/CreateCard';
 const App = () => (
   <Router>
     <Switch>
-      <Route exact path="/collection" component={Collection} />
-      <Route exact path="/create-card" component={CreateCard} />
+      <Route exact path='/collection' component={Collection} />
+      <Route exact path='/create-card' component={CreateCard} />
     </Switch>
   </Router>
 );

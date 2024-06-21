@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import { object, string } from 'yup';
 import Input from '../../components/Input';
-import { addToCollection } from '../../lib/collection';
+import { addToCollection, Values } from '../../lib/collection';
 
 import './styles.css';
 
@@ -10,7 +10,7 @@ const initialValues = {
   firstname: '',
   lastname: '',
   birthday: '',
-}
+};
 
 const validationSchema = () => object().shape({
   firstname: string()
@@ -22,20 +22,24 @@ const validationSchema = () => object().shape({
     .max(50, 'Too long last name')
     .required('Last name is required'),
   birthday: string().required('Birthday is required'),
-})
+});
+
+function redirectToCollection() {
+  window.location.href = '/collection';
+}
 
 const CreateCard = () => {
   const [error, setError] = useState('');
 
-  const submitHandler = async (values) => {
+  const submitHandler = async (values: Values) => {
     try {
       await addToCollection(values);
 
-      window.location.href = '/collection';
+      redirectToCollection();
     } catch (err) {
       setError(err.message);
     }
-  }
+  };
 
   return (
     <div className='formContainer'>
@@ -52,7 +56,11 @@ const CreateCard = () => {
             <Input type='text' name='firstname' label='First Name' />
             <Input type='text' name='lastname' label='Last Name' />
             <Input type='date' name='birthday' label='Birthday' />
-            <button type="submit" disabled={isSubmitting} className='submitButton'>
+            <button
+              type='submit'
+              disabled={isSubmitting}
+              className='submitButton'
+            >
               Submit
             </button>
           </Form>

@@ -4,10 +4,10 @@ import Loader from '../Loader';
 
 import './styles.css';
 
-const IMAGES_URL = 'https://images.fotmob.com/image_resources/playerimages/'
+const IMAGES_URL = 'https://images.fotmob.com/image_resources/playerimages/';
 
-interface Props {
-  info: {
+export interface CardInfo {
+  player: {
     image: string;
     firstname: string;
     lastname: string;
@@ -16,7 +16,7 @@ interface Props {
   id: number;
 }
 
-const Card = ({ info, id }: Props) => {
+export const Card = ({ player, id }: CardInfo) => {
   const [loaded, setLoaded] = useState(false);
 
   const imageStyle = loaded ? {} : { display: 'none' };
@@ -31,10 +31,8 @@ const Card = ({ info, id }: Props) => {
           onLoad={() => setLoaded(true)}
         />
       </div>
-      <h1 className='title'>{info.firstname + ' ' + info.lastname}</h1>
-      <p className='birthday'>{formatBirthday(info.birthday)}</p>
+      <h1 className='title'>{player.firstname + ' ' + player.lastname}</h1>
+      <p className='birthday'>{formatBirthday(player.birthday)}</p>
     </div>
-  )
+  );
 };
-
-export default Card;
